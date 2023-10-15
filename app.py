@@ -1,22 +1,31 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
-app.secret_key = 'some_secret_key'  # This is used for flashing messages
+
+# Configurations for Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'YOUR_EMAIL@gmail.com'
+app.config['MAIL_PASSWORD'] = 'YOUR_PASSWORD'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
+mail = Mail(app)
 
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
     if request.method == 'POST':
-        # Get data from the form
-        email = request.form.get('email')
+        subject = request.form['subject']
+        email = request.form['email']
+        message_body = request.form['message']
 
-        # TODO: Save the email to your database or mailing list
+        msg = Message(subject, sender=email, recipients=['YOUR_EMAIL@gmail.com'])
+        msg.body = message_body
+        mail.send(msg)
 
-        flash('Thanks for signing up!', 'success')  # Flash a success message
-        return redirect(url_for('index'))
+        flash('Email sent successfully!')
+        return redirect(url_for('contact'))
 
-    return render_template('index.html')
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    return render_template('contact.html')
