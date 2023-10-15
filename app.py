@@ -29,8 +29,12 @@ def contact():
         email = request.form['email']
         message_body = request.form['message']
 
-        msg = Message(subject, sender=email, recipients=['hackingbaseball@gmail.com'])
-        msg.body = message_body
+        # Updated the sender to be your email
+        msg = Message(subject, sender='hackingbaseball@gmail.com', recipients=['hackingbaseball@gmail.com'])
+
+        # Include the user's email in the message body
+        msg.body = f"From: {email}\n\n{message_body}"
+
         mail.send(msg)
 
         flash('Email sent successfully!')
