@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Hacking Baseball</title>
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
             background: #f8f9fa;
             height: 100vh;
-            display: flex;
-            flex-direction: column;  /* Changed to column to allow footer at the bottom */
             color: #2c3e50;
+            display: flex;
+            flex-direction: column;
         }
 
         .content {
@@ -24,19 +22,8 @@
             justify-content: center;
         }
 
-        .container {
-            background-color: #ffffff;
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
-            max-width: 550px;
-            text-align: center;
-        }
-
         h1 {
             font-size: 2.5em;
-            font-weight: 600;
-            margin-bottom: 30px;
             color: #e74c3c;
         }
 
@@ -65,14 +52,22 @@
 <body>
     <div class="content">
         <div class="container">
-            <h1>Hacking Baseball</h1>
-            <p>Easy-to-use baseball analytics tools in your web browser.</p>
-            <p class="coming-soon">COMING SOON</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h1>Hacking Baseball</h1>
+                    <p>Easy-to-use baseball analytics tools in your web browser.</p>
+                    <p class="coming-soon">COMING SOON</p>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Copyright footer at the bottom of the page -->
     <div class="footer">
         &copy; 2023 Hacking Baseball. All rights reserved.
     </div>
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
