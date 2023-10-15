@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
+app.secret_key = "some_secret_key"  # Change this to your secret key
 
 # Configurations for Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -12,6 +13,11 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -29,3 +35,7 @@ def contact():
         return redirect(url_for('contact'))
 
     return render_template('contact.html')
+
+
+if __name__ == "__main__":
+    app.run()

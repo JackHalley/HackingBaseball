@@ -1,21 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Contact Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Hacking Baseball</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #e74c3c;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #fff;
+        }
+        .hero-section {
+            background-color: #333;
+            color: #fff;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .feature-item {
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 3em;
+            color: #e74c3c;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Contact Us</h2>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Hacking Baseball</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<form action="/contact" method="post">
-    Email: <br>
-    <input type="email" name="email" required><br>
-    Subject: <br>
-    <input type="text" name="subject" required><br>
-    Message: <br>
-    <textarea name="message" required></textarea><br>
-    <input type="submit" value="Send">
-</form>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1>Welcome to Hacking Baseball</h1>
+        <p>Easy-to-use baseball analytics tools in your web browser.</p>
+        <a href="#signup" class="btn btn-light mt-4">Sign Up Now</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Comprehensive Analytics</h3>
+                <p>Deep insights into your favorite baseball metrics.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Friendly</h3>
+                <p>Access your data anytime, anywhere.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Community</h3>
+                <p>Join a growing community of baseball enthusiasts.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center">What People Are Saying</h2>
+        <div class="row mt-4">
+            <!-- You can add more testimonials here as needed -->
+            <div class="col-md-4">
+                <blockquote>
+                    "This platform revolutionized how I see baseball statistics."
+                    <footer>- Jane Doe</footer>
+                </blockquote>
+            </div>
+            <div class="col-md-4">
+                <blockquote>
+                    "A game changer for baseball analysts!"
+                    <footer>- John Smith</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        &copy; 2023 Hacking Baseball. All rights reserved.
+        <div class="social-icons mt-3">
+            <!-- Add your social media links here. Example for Twitter: -->
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <!-- More icons can be added from Font Awesome. -->
+        </div>
+    </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>

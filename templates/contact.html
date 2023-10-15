@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Contact Form</title>
 </head>
 <body>
+
+<h2>Contact Us</h2>
+
+<form action="/contact" method="post">
+    Email: <br>
+    <input type="email" name="email" required><br>
+    Subject: <br>
+    <input type="text" name="subject" required><br>
+    Message: <br>
+    <textarea name="message" required></textarea><br>
+    <input type="submit" value="Send">
+</form>
 
 </body>
 </html>
