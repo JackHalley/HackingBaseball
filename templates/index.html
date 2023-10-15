@@ -3,71 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Hacking Baseball</title>
-    <style>
-        body {
-            background: #f8f9fa;
-            height: 100vh;
-            color: #2c3e50;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #e74c3c;
-        }
-
-        p {
-            font-size: 1.3em;
-            margin-top: 20px;
-        }
-
-        .coming-soon {
-            font-size: 1.4em;
-            color: #7f8c8d;
-            margin-top: 50px;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        /* Styles for the footer */
-        .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-        }
-    </style>
+    <title>Signup | Hacking Baseball</title>
 </head>
 <body>
-    <div class="content">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h1>Hacking Baseball</h1>
-                    <p>Easy-to-use baseball analytics tools in your web browser.</p>
-                    <p class="coming-soon">COMING SOON</p>
+
+<div class="container mt-5">
+    <h1 class="text-center">Hacking Baseball</h1>
+    <p class="text-center">Easy-to-use baseball analytics tools in your web browser.</p>
+
+    <!-- Display flashed messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <form action="/" method="post">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" class="form-control" required>
                 </div>
-            </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
         </div>
     </div>
-    <!-- Copyright footer at the bottom of the page -->
-    <div class="footer">
-        &copy; 2023 Hacking Baseball. All rights reserved.
-    </div>
-    <!-- Bootstrap JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+
 </body>
 </html>
