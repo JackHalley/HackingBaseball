@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.secret_key = "some_secret_key"  # Change this to your secret key
 
 
-# TODO: Fix email
+# TODO: Hide EMAIL PASSWORD
 # Configurations for Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
