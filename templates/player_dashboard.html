@@ -2,43 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Player Performance Dashboard</h1>
-    <!-- Year Selection Form -->
-    <form action="/player_dashboard" method="get">
-        <label for="year">Select Year:</label>
-        <select name="year" id="year">
-            {% for year in range(2010, 2023) %}
-            <option value="{{ year }}" {% if year == selected_year %} selected {% endif %}>
-                {{ year }}
-            </option>
-            {% endfor %}
-        </select>
-        <button type="submit">Update</button>
-    </form>
-
-    <!-- Player Data Table -->
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Team</th>
-                <th>Home Runs</th>
-                <th>Batting Average</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for player in players_data %}
-            <tr>
-                <td>{{ player['Name'] }}</td>
-                <td>{{ player['Team'] }}</td>
-                <td>{{ player['HR'] }}</td>
-                <td>{{ player['AVG'] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <h1 class="mt-5">Player Performance Dashboard</h1>
+        <!-- Year Selection Form -->
+        <div class="my-3">
+            <form action="/player_dashboard" method="get" class="form-inline">
+                <div class="form-group mb-2">
+                    <label for="year" class="sr-only">Select Year:</label>
+                    <select name="year" id="year" class="form-control">
+                        {% for year in range(2010, 2023) %}
+                        <option value="{{ year }}" {% if year == selected_year %} selected {% endif %}>
+                            {{ year }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Update</button>
+            </form>
+        </div>
+        <!-- Player Data Table -->
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Team</th>
+                    <th>Home Runs</th>
+                    <th>Batting Average</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players_data %}
+                <tr>
+                    <td>{{ player['Name'] }}</td>
+                    <td>{{ player['Team'] }}</td>
+                    <td>{{ player['HR'] }}</td>
+                    <td>{{ player['AVG'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
