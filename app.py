@@ -23,18 +23,28 @@ def index():
 def tools():
     return render_template('tools.html')
 
+@app.route('/available_stats')
+def available_stats():
+    stats = pybaseball.batting_stats(2022)  # Example year, choose appropriately
+    return jsonify(stats.columns.tolist())
+
+
 @app.route('/player_dashboard')
 def player_dashboard():
     return render_template('player_dashboard.html', selected_year=datetime.now().year)
 
 @app.route('/filter_data', methods=['POST'])
 def filter_data():
-    year = request.json.get('year', datetime.now().year)
-    data = pybaseball.batting_stats(year).head(5)
-    data = data.fillna("N/A")  # Replace NaN with "N/A"
-    players_data = data.to_dict('records')
-    print(data.columns.tolist())  # This will print the list of column names
-    return jsonify(players_data)
+    data = request.json
+    year = data['filters']['year']
+    selected_stats = data['selectedStats']
+    stats_data = pybaseball.batting_stats(year)
+    print(stats_data.columns.tolist())  # This line will print the column names
+    # Select only the requested stats
+    filtered_data = stats_data[selected_stats]
+    return jsonify(filtered_data.to_dict('records'))
+
+
 
 
 
