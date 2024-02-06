@@ -38,6 +38,25 @@ html, body {
     overflow-y: auto;
 }
 
+.table-fixed-header {
+  width: 100%;
+  overflow-y: auto;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* or any color that matches your design */
+  z-index: 10;
+}
+
+/* Optional: Add a box shadow or border to the sticky header to make it stand out */
+thead th {
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid #dee2e6; /* Bootstrap's default border color for tables */
+}
+
+
 
     </style>
 </head>
