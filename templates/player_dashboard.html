@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Dashboard</title>
+</head>
+<body>
+    <h1>Player Performance Dashboard</h1>
+    <!-- Year Selection Form -->
+    <form action="/player_dashboard" method="get">
+        <label for="year">Select Year:</label>
+        <select name="year" id="year">
+            {% for year in range(2010, 2023) %}
+            <option value="{{ year }}" {% if year == selected_year %} selected {% endif %}>
+                {{ year }}
+            </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Update</button>
+    </form>
+
+    <!-- Player Data Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Home Runs</th>
+                <th>Batting Average</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players_data %}
+            <tr>
+                <td>{{ player['Name'] }}</td>
+                <td>{{ player['Team'] }}</td>
+                <td>{{ player['HR'] }}</td>
+                <td>{{ player['AVG'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

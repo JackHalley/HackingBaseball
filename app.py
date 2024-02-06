@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mail import Mail, Message
+import pybaseball
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "some_secret_key"  # Change this to your secret key
@@ -25,6 +27,21 @@ def index():
 def tools():
     return render_template('tools.html')
 
+
+@app.route('/player_dashboard')
+def player_dashboard():
+    year = request.args.get('year', default=datetime.now().year, type=int)
+    try:
+        data = pybaseball.batting_stats(year)
+        print(data.head())  # Inspect the first few rows of the fetched data
+        sample_data = data.head(5)
+        players_data = sample_data.to_dict('records')
+    except Exception as e:
+        print(f"Error fetching or processing data: {e}")
+        # Fallback or error handling logic here
+        players_data = []
+
+    return render_template('player_dashboard.html', players_data=players_data, selected_year=year)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
