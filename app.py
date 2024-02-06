@@ -15,13 +15,16 @@ app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
 @app.route('/tools')
 def tools():
     return render_template('tools.html')
+
 
 @app.route('/available_stats')
 def available_stats():
@@ -33,6 +36,7 @@ def available_stats():
 def player_dashboard():
     return render_template('player_dashboard.html', selected_year=datetime.now().year)
 
+
 @app.route('/filter_data', methods=['POST'])
 def filter_data():
     data = request.json
@@ -43,9 +47,6 @@ def filter_data():
     # Select only the requested stats
     filtered_data = stats_data[selected_stats]
     return jsonify(filtered_data.to_dict('records'))
-
-
-
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -60,6 +61,7 @@ def contact():
         flash('Email sent successfully!')
         return redirect(url_for('contact'))
     return render_template('contact.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
