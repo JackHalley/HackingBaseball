@@ -7,40 +7,50 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <style>
-    .dashboard-container {
-        display: flex;
-        align-items: flex-start;
-        padding: 20px;
-    }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-    .stats-menu {
-        flex-direction: column;
-        margin-right: 20px;
-        width: 200px; /* Adjust the width as needed */
-    }
+.dashboard-container {
+    display: flex;
+    align-items: stretch; /* Stretch items vertically */
+    padding: 20px;
+    height: 100%; /* Set the height to 100% */
+}
 
-    .table-container {
-        flex-grow: 1;
-        width: calc(100% - 200px); /* Adjust based on the width of the stats-menu */
-    }
+.stats-menu {
+    flex-direction: column;
+    margin-right: 20px;
+    width: 200px; /* Adjust the width as needed */
+    height: 100%; /* Set the height to 100% */
+}
 
-    /* Additional styles to ensure the select element sizes properly */
-    .stats-menu select {
-        height: calc(2.25rem * 4); /* Adjust multiplier based on number of items to show */
-        overflow-y: auto;
-    }
+.table-container {
+    flex-grow: 1;
+    width: calc(100% - 200px); /* Adjust based on the width of the stats-menu */
+}
+
+/* Additional styles to ensure the select element sizes properly */
+.stats-menu select {
+    height: 100%;
+    overflow-y: auto;
+}
+
 
     </style>
 </head>
 <body>
 <div class="dashboard-container">
 
-    <div class="stats-menu form-group">
-        <label for="statsSelect">Select Stats:</label>
-        <select id="statsSelect" multiple class="form-control">
-            <!-- Options will be populated dynamically with JavaScript -->
-        </select>
-    </div>
+   <div class="stats-menu">
+    <label for="statsSelect">Select Stats:</label>
+    <select id="statsSelect" multiple>
+        <!-- Options will be populated dynamically with JavaScript -->
+    </select>
+</div>
+
 
     <div class="table-container">
         <h1>Player Performance Dashboard</h1>
