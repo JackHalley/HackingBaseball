@@ -41,33 +41,41 @@
         </table>
     </div>
 <script>
-    function fetchData(year, selectedStats) {
-    console.log(selectedStats)
-        $.ajax({
-            url: '/filter_data',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ filters: { year: year }, selectedStats: selectedStats }),
-            success: function(data) {
-                console.log(data)
-                var rows = '';
-                $.each(data, function(index, player) {
-                    var playerRow = `<tr>`;
-                    $.each(selectedStats, function(i, stat) {
-                        playerRow += `<td>${player[stat]}</td>`; // Use stat.toLowerCase() to match JSON keys
-                    });
-                    playerRow += `</tr>`;
-                    rows += playerRow;
-                });
-                $('#playerData tbody').html(rows);
-            },
-            error: function(xhr, status, error) {
-                console.error("Error fetching data: ", status, error);
-            }
-        });
-    }
+// Function to update the table headers dynamically based on selected stats
+function updateHeaders(selectedStats) {
+    var headersRow = $('#playerData thead tr');
+    headersRow.empty(); // Clear current headers
+    selectedStats.forEach(function(stat) {
+        headersRow.append(`<th>${stat}</th>`);
+    });
+}
 
-  $(document).ready(function() {
+/// Function to fetch data based on the selected year and stats
+function fetchData(year, selectedStats) {
+    $.ajax({
+        url: '/filter_data',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ filters: { year: year }, selectedStats: selectedStats }),
+        success: function(data) {
+            var rows = '';
+            data.forEach(function(player) {
+                var playerRow = '<tr>';
+                selectedStats.forEach(function(stat) {
+                    playerRow += `<td>${player[stat] || 'N/A'}</td>`; // Add player stat or 'N/A' if undefined
+                });
+                playerRow += '</tr>';
+                rows += playerRow;
+            });
+            $('#playerData tbody').html(rows);
+        },
+        error: function(xhr, status, error) {
+            console.error("Error fetching data: ", status, error);
+        }
+    });
+}
+
+$(document).ready(function() {
     // Fetch available stats and populate the selection menu
     $.getJSON('/available_stats', function(stats) {
         var statsSelect = $('#statsSelect');
@@ -82,16 +90,24 @@
     // Placeholder array for selected stats, this will be updated based on actual user selection
     var selectedStats = [];
 
-    // Fetch data when the page loads and on year or stats selection changes
-    $('#yearSelect, #statsSelect').change(function() {
+ $('#yearSelect, #statsSelect').change(function() {
         selectedStats = $('#statsSelect').val(); // Update selected stats based on user selection
-        fetchData($('#yearSelect').val(), selectedStats);
+        if (selectedStats.length > 0) {
+            fetchData($('#yearSelect').val(), selectedStats);
+            updateHeaders(selectedStats); // Update the headers after fetching data
+        } else {
+            $('#playerData thead tr').empty(); // Reset headers if no stats are selected
+            $('#playerData tbody').empty(); // Clear the table body
+        }
     });
 
     // Trigger change event to load initial data
     $('#yearSelect').change();
 });
 </script>
+
+
+
 
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
