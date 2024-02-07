@@ -97,42 +97,35 @@ thead th {
 </div>
 
 
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script>
-// Function to update the table headers dynamically based on selected stats
-function updateHeaders(selectedStats) {
-    var headersRow = $('#playerData thead tr');
-    headersRow.empty(); // Clear current headers
-    selectedStats.forEach(function(stat) {
-        headersRow.append(`<th>${stat}</th>`);
-    });
-}
-
-/// Function to fetch data based on the selected year and stats
-function fetchData(year, selectedStats) {
-    $.ajax({
-        url: '/filter_data',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({ filters: { year: year }, selectedStats: selectedStats }),
-        success: function(data) {
-            var rows = '';
-            data.forEach(function(player) {
-                var playerRow = '<tr>';
-                selectedStats.forEach(function(stat) {
-                    playerRow += `<td>${player[stat] || 'N/A'}</td>`; // Add player stat or 'N/A' if undefined
-                });
-                playerRow += '</tr>';
-                rows += playerRow;
-            });
-            $('#playerData tbody').html(rows);
-        },
-        error: function(xhr, status, error) {
-            console.error("Error fetching data: ", status, error);
-        }
-    });
-}
-
 $(document).ready(function() {
+    var table; // Declare table variable to be assigned later
+
+    // Function to update headers and reinitialize the DataTable
+    function updateTableHeadersAndData(selectedStats, data) {
+        if ($.fn.DataTable.isDataTable('#playerData')) {
+            // If the table is already a DataTable, destroy it
+            table.destroy();
+        }
+        // Empty the header row and add new headers
+        var headerRow = $('#playerData thead tr').empty();
+        selectedStats.forEach(function(stat) {
+            headerRow.append('<th>' + stat + '</th>');
+        });
+
+        // Reinitialize the DataTable with new headers and data
+        table = $('#playerData').DataTable({
+            "data": data,
+            "columns": selectedStats.map(function(stat) {
+                return { "data": stat };
+            }),
+            "searching": true,
+            "paging": true,
+            "order": []
+        });
+    }
+
     // Fetch available stats and populate the selection menu
     $.getJSON('/available_stats', function(stats) {
         var statsSelect = $('#statsSelect');
@@ -144,17 +137,30 @@ $(document).ready(function() {
         });
     });
 
-    // Placeholder array for selected stats, this will be updated based on actual user selection
-    var selectedStats = [];
-
- $('#yearSelect, #statsSelect').change(function() {
-        selectedStats = $('#statsSelect').val(); // Update selected stats based on user selection
+    // Handle year and stats selection changes
+    $('#yearSelect, #statsSelect').change(function() {
+        var selectedStats = $('#statsSelect').val(); // Update selected stats based on user selection
+        var year = $('#yearSelect').val();
         if (selectedStats.length > 0) {
-            fetchData($('#yearSelect').val(), selectedStats);
-            updateHeaders(selectedStats); // Update the headers after fetching data
+            $.ajax({
+                url: '/filter_data',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ filters: { year: year }, selectedStats: selectedStats }),
+                success: function(data) {
+                    // Update headers and table data
+                    updateTableHeadersAndData(selectedStats, data);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data: ", status, error);
+                }
+            });
         } else {
-            $('#playerData thead tr').empty(); // Reset headers if no stats are selected
-            $('#playerData tbody').empty(); // Clear the table body
+            if ($.fn.DataTable.isDataTable('#playerData')) {
+                // Clear the table if no stats are selected
+                table.clear().destroy();
+                $('#playerData thead tr').empty(); // Also clear the headers
+            }
         }
     });
 
@@ -162,6 +168,7 @@ $(document).ready(function() {
     $('#yearSelect').change();
 });
 </script>
+
 
 
 
