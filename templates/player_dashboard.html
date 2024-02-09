@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    display: flex;
+    align-items: stretch; /* Stretch items vertically */
+    padding: 20px;
+    height: 100%; /* Set the height to 100% */
+}
+
+.stats-menu {
+    flex-direction: column;
+    margin-right: 20px;
+    width: 200px; /* Adjust the width as needed */
+    height: 100%; /* Set the height to 100% */
+}
+
+.table-container {
+    flex-grow: 1;
+    width: calc(100% - 200px); /* Adjust based on the width of the stats-menu */
+}
+
+/* Additional styles to ensure the select element sizes properly */
+.stats-menu select {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.table-fixed-header {
+  width: 100%;
+  overflow-y: auto;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* or any color that matches your design */
+  z-index: 10;
+}
+
+/* Optional: Add a box shadow or border to the sticky header to make it stand out */
+thead th {
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid #dee2e6; /* Bootstrap's default border color for tables */
+}
+
+
+
+    </style>
+</head>
+<body>
+<div class="dashboard-container">
+
+   <div class="stats-menu">
+    <label for="statsSelect">Select Stats:</label>
+    <select id="statsSelect" multiple>
+        <!-- Options will be populated dynamically with JavaScript -->
+    </select>
+</div>
+
+
+    <div class="table-container">
+        <h1>Player Performance Dashboard</h1>
+        <div>
+            <label for="yearSelect">Select Year:</label>
+            <select id="yearSelect" class="form-control">
+                <!-- Options populated via server-side template language -->
+                 {% for year in range(2010, 2023) %}
+                <option value="{{ year }}">{{ year }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <table class="table" id="playerData">
+            <thead class="thead-dark">
+                <tr>
+                    <!-- Headers will be inserted dynamically -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+    var table; // Declare table variable to be assigned later
+
+    // Function to update headers and reinitialize the DataTable
+    function updateTableHeadersAndData(selectedStats, data) {
+        if ($.fn.DataTable.isDataTable('#playerData')) {
+            // If the table is already a DataTable, destroy it
+            table.destroy();
+        }
+        // Empty the header row and add new headers
+        var headerRow = $('#playerData thead tr').empty();
+        selectedStats.forEach(function(stat) {
+            headerRow.append('<th>' + stat + '</th>');
+        });
+
+        // Reinitialize the DataTable with new headers and data
+        table = $('#playerData').DataTable({
+            "data": data,
+            "columns": selectedStats.map(function(stat) {
+                return { "data": stat };
+            }),
+            "searching": true,
+            "paging": true,
+            "order": []
+        });
+    }
+
+    // Fetch available stats and populate the selection menu
+    $.getJSON('/available_stats', function(stats) {
+        var statsSelect = $('#statsSelect');
+        stats.forEach(function(stat) {
+            statsSelect.append($('<option>', {
+                value: stat,
+                text: stat
+            }));
+        });
+    });
+
+    // Handle year and stats selection changes
+    $('#yearSelect, #statsSelect').change(function() {
+        var selectedStats = $('#statsSelect').val(); // Update selected stats based on user selection
+        var year = $('#yearSelect').val();
+        if (selectedStats.length > 0) {
+            $.ajax({
+                url: '/filter_data',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ filters: { year: year }, selectedStats: selectedStats }),
+                success: function(data) {
+                    // Update headers and table data
+                    updateTableHeadersAndData(selectedStats, data);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data: ", status, error);
+                }
+            });
+        } else {
+            if ($.fn.DataTable.isDataTable('#playerData')) {
+                // Clear the table if no stats are selected
+                table.clear().destroy();
+                $('#playerData thead tr').empty(); // Also clear the headers
+            }
+        }
+    });
+
+    // Trigger change event to load initial data
+    $('#yearSelect').change();
+});
+</script>
+
+
+
+
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
