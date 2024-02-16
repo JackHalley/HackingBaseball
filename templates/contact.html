@@ -1,83 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Contact - Hacking Baseball</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+    />
+    <title>Hacking Baseball</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Raleway', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .btn {
+            background-color: #c20032;
+            color: #f0f8ff;
+            text-transform: uppercase;
         }
         .navbar {
-            background-color: #e74c3c;
+            background-color: #c20032;
+			margin-bottom: 15px;
+
         }
         .navbar-brand {
             font-weight: bold;
         }
         .navbar-dark .navbar-toggler-icon {
-            background-color: #fff;
+            background-color: #c20032;
+            color: #f0f8ff;
         }
         .contact-section {
-            background-color: #f8f9fa;
-            padding: 50px 0;
-            text-align: center;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 112px); /* Adjust for navbar and footer height */
+        }
+        .contact-form {
+            max-width: 900px; /* Limit form width */
+            padding: 20px;
+            border: 1px solid #021f40;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
+            background-color: #021f40;
+            color: #f0f8ff;
+            padding: 10px 0;
             text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
-
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Hacking Baseball</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">
+            <img
+                src="logo.png"
+                alt="Hacking Baseball Logo"
+                width="50"
+                height="50"
+            />
+            Hacking Baseball
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#testimonials">Testimonials</a>
-                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#contact">Contact</a>
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tools">Tools</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
+
 <!-- Contact Section -->
 <section class="contact-section">
     <div class="container">
-        <h2>Contact Us</h2>
-        <form method="POST" action="/contact">
-            <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject:</label>
-                <input type="text" class="form-control" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <div class="contact-form">
+            <h2 class="text-center mb-4">Contact Us</h2>
+            <form method="POST" action="/contact">
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        required
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="subject"
+                        name="subject"
+                        required
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea
+                        class="form-control"
+                        id="message"
+                        name="message"
+                        rows="10" 
+                        required
+                    ></textarea>
+                </div>
+                <button type="submit" class="btn  btn-block">
+                    Submit
+                </button>
+            </form>
+        </div>
     </div>
 </section>
 
@@ -85,10 +152,10 @@
 <footer class="footer">
     <div class="container">
         &copy; 2023 Hacking Baseball. All rights reserved.
-        <div class="social-icons mt-3">
-            <!-- Add your social media links here. Example for Twitter: -->
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <!-- More icons can be added from Font Awesome. -->
+        <div class="social-icons mt-md-5">
+            <a href="#" target="_blank"
+            ><i class="fab fa-twitter"></i
+                ></a>
         </div>
     </div>
 </footer>
@@ -100,7 +167,5 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
-
 </html>
