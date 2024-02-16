@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="favicon.png">
+
 		<title>Player Dashboard</title>
 		<link
 			rel="stylesheet"
@@ -67,9 +69,57 @@
 				box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 				border-bottom: 2px solid #dee2e6; /* Bootstrap's default border color for tables */
 			}
+			.navbar {
+				background-color: #c20032;
+			}
+			.navbar-brand {
+				font-weight: bold;
+			}
+			.navbar-dark .navbar-toggler-icon {
+				background-color: #c20032;
+				color: #f0f8ff;
+			}
 		</style>
 	</head>
 	<body>
+		<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img
+                src="logo.png"
+                alt="Hacking Baseball Logo"
+                width="50"
+                height="50"
+            />
+            Hacking Baseball
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tools.html">Tools</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 		<div class="dashboard-container">
 			<div class="stats-menu">
 				<label for="statsSelect">Select Stats:</label>
