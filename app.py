@@ -1,17 +1,19 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, flash, redirect, url_for
 from flask_mail import Mail, Message
 import pybaseball
 from datetime import datetime
+import os
 
 app = Flask(__name__)
-app.secret_key = "some_secret_key"
 
-# Configurations for Flask-Mail (ensure secure handling of credentials)
+
+# Use environment variables to keep your credentials secure
+app.secret_key = os.getenv('SECRET_KEY')
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'hackingbaseball@gmail.com'
-app.config['MAIL_PASSWORD'] = 'your_password'  # Consider using environment variables for security
 app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 
 mail = Mail(app)
 

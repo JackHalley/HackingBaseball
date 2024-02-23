@@ -42,3 +42,5 @@ tzdata==2023.4
 urllib3==2.2.0
 Werkzeug @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_fc9kcczuwd/croot/werkzeug_1679489745296/work
 wrapt==1.16.0
+
+flask~=2.2.2
