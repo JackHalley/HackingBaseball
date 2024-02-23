@@ -28,7 +28,7 @@ def tools():
 
 @app.route('/available_stats')
 def available_stats():
-    stats = pybaseball.batting_stats(2022)  # Example year, choose appropriately
+    stats = pybaseball.batting_stats(2023)  # Example year, choose appropriately
     return jsonify(stats.columns.tolist())
 
 
