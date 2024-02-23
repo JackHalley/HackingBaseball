@@ -23,8 +23,8 @@ Follow these steps to get your development environment set up:
 
 1. Clone the repository: `git clone https://github.com/<your-github-username>/HackingBaseball.git`
 2. Navigate to project directory: `cd HAckingBaseball`
-3. Create and activate a python virtual environment
-4. Install dependencies: `pip install -r requirements.txt`
+3. Create and activate a python virtual environment: https://realpython.com/python-virtual-environments-a-primer/
+5. Install dependencies: `pip install -r requirements.txt`
 
 ### Configuration
 
