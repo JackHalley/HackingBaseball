@@ -80,12 +80,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img
-                src="logo.png"
-                alt="Hacking Baseball Logo"
-                width="50"
-                height="50"
-            />
+           <img src="{{ url_for('static', filename='logo.png') }}" alt="Hacking Baseball Logo" width="50" height="50">
+
             Hacking Baseball
         </a>
         <button
@@ -121,7 +117,7 @@
     <h1>Baseball Analytics Tools</h1>
     <p>Select a tool to start analyzing:</p>
     <ul>
-        <li><a href="player_dashboard.html">Player Performance Dashboard</a></li>
+        <li><a href="/player_dashboard">Player Performance Dashboard</a></li>
         <!-- Add more tools here -->
     </ul>
 </div>
