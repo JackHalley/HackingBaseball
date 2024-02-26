@@ -13,7 +13,7 @@
 			href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="icon" type="image/png" href="favicon.png">
+		<link rel="icon" type="image/png" href="favicon.png" />
 		<!-- flask -->
 		<!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
 		<title>Hacking Baseball</title>
@@ -74,7 +74,12 @@
 		<nav class="navbar navbar-expand-lg navbar-dark">
 			<div class="container">
 				<a class="navbar-brand" href="#">
-					<img src="{{ url_for('static', filename='logo.png') }}" alt="Hacking Baseball Logo" width="50" height="50">
+					<img
+						src="{{ url_for('static', filename='logo.png') }}"
+						alt="Hacking Baseball Logo"
+						width="50"
+						height="50"
+					/>
 
 					Hacking Baseball
 				</a>
@@ -177,9 +182,9 @@
 		<!-- Footer -->
 		<footer class="footer">
 			<div class="container">
-				&copy; 2023 Hacking Baseball. All rights reserved.
 				<div class="social-icons mt-3">
 					<!-- Add your social media links here. Example for Twitter: -->
+					<p>&copy; <span id="currentYear"></span> Hacking Baseball. All rights reserved. </p>
 					<a href="#" target="_blank"
 						><i class="fab fa-twitter"></i
 					></a>
@@ -188,6 +193,14 @@
 			</div>
 		</footer>
 		<!-- Optional JavaScript -->
+		<script>
+			// Get the current year
+			const currentYear = new Date().getFullYear();
+
+			// Update the footer text
+			document.getElementById('currentYear').textContent = currentYear;
+		</script>
+
 		<!-- Font Awesome for icons -->
 		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->

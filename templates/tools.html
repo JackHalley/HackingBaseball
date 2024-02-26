@@ -123,17 +123,30 @@
 </div>
 
 <!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        &copy; 2023 Hacking Baseball. All rights reserved.
-        <div class="social-icons mt-3">
-            <a href="#" target="_blank"
-            ><i class="fab fa-twitter"></i
-                ></a>
-            <!-- More icons can be added from Font Awesome. -->
-        </div>
-    </div>
-</footer>
+<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="social-icons mt-3">
+					<!-- Add your social media links here. Example for Twitter: -->
+					<p>&copy; <span id="currentYear"></span> Hacking Baseball. All rights reserved. </p>
+					<a href="#" target="_blank"
+						><i class="fab fa-twitter"></i
+					></a>
+					<!-- More icons can be added from Font Awesome. -->
+				</div>
+			</div>
+		</footer>
+		<!-- Optional JavaScript -->
+		<script>
+			// Get the current year
+			const currentYear = new Date().getFullYear();
+
+			// Update the footer text
+			document.getElementById('currentYear').textContent = currentYear;
+		</script>
+
+		<!-- Font Awesome for icons -->
+		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <!-- Optional JavaScript -->
 <!-- Font Awesome for icons -->
