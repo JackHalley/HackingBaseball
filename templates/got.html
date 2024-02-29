@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Contact</title>
+    <title>Glossary of Terms</title>
     <!-- Bootstrap CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -43,14 +43,33 @@
             color: #ffffff;
             background-color: #c20032;
         }
-
-        .footer {
+        /* Specific styling */
+        .hero-section {
+            background-color: #021f40;
+            color: #f0f8ff;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .feature-item {
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 3em;
+            color: #c20032;
+        }
+        .features, .testimonials {
+            background-color: #f0f8ff;
+        }
+      .footer {
             position: absolute;
             bottom: 0;
             width: 100%;
             background-color: #021f40;
             color: #f0f8ff;
-            {#padding: 10px 0;#}
+            {#padding: 20px 0;#}
             text-align: center;
         }
     </style>
@@ -97,56 +116,17 @@
 </nav>
 
 
+<h1>Content coming soon</h1>
 
-<!-- Contact Section -->
-<section class="contact-section">
-    <div class="container">
-        <div class="contact-form">
-            <h2 class="text-center mb-4">Contact Us</h2>
-            <form method="POST" action="/contact">
-                <div class="form-group">
-                    <label for="email">Email address:</label>
-                    <input
-                            type="email"
-                            class="form-control"
-                            id="email"
-                            name="email"
-                            required
-                    />
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject:</label>
-                    <input
-                            type="text"
-                            class="form-control"
-                            id="subject"
-                            name="subject"
-                            required
-                    />
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea
-                            class="form-control"
-                            id="message"
-                            name="message"
-                            rows="10"
-                            required
-                    ></textarea>
-                </div>
-                <button type="submit" class="btn btn-block" style="background-color: #021f40; color: #f0f8ff; margin-top: 10px;">
-                    Submit
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
         <div class="social-icons mt-3">
             <!-- Add your social media links here. Example for Twitter: -->
-            <p>&copy; <span id="currentYear"></span> Hacking Baseball. All rights reserved. </p>
+            <p>
+                &copy; <span id="currentYear"></span> Hacking Baseball.
+                All rights reserved.
+            </p>
             <a href="#" target="_blank"
             ><i class="fab fa-twitter"></i
             ></a>
@@ -166,9 +146,10 @@
 <!-- Font Awesome for icons -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        crossorigin="anonymous"
+></script>
 </body>
 </html>
