@@ -41,6 +41,7 @@
         }
 
         .table-container {
+
             flex-grow: 1;
             width: calc(
                     100% - 200px
@@ -56,12 +57,15 @@
         .table-fixed-header {
             width: 100%;
             overflow-y: auto;
+
+
         }
 
         thead th {
             position: sticky;
             top: 0;
-            background-color: #fff; /* or any color that matches your design */
+            background-color: #021f40;
+            color: #f0f8ff;
             z-index: 10;
         }
 
@@ -71,15 +75,7 @@
             border-bottom: 2px solid #dee2e6; /* Bootstrap's default border color for tables */
         }
 
-        .navbar {
-            background-color: #c20032;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-        }
-
-        .navbar-dark .navbar-toggler-icon {
+        .navbar-dark {
             background-color: #c20032;
             color: #f0f8ff;
         }
@@ -144,7 +140,7 @@
                 {% endfor %}
             </select>
         </div>
-        <table class="table" id="playerData">
+        <table class="table-fixed-header" id="playerData">
             <thead class="thead-dark">
             <tr>
                 <!-- Headers will be inserted dynamically -->
@@ -160,7 +156,7 @@
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function () {
-        var table; // Declare table variable to be assigned later
+        let table; // Declare table variable to be assigned later
 
         // Function to update headers and reinitialize the DataTable
         function updateTableHeadersAndData(selectedStats, data) {
@@ -169,7 +165,7 @@
                 table.destroy();
             }
             // Empty the header row and add new headers
-            var headerRow = $('#playerData thead tr').empty();
+            let headerRow = $('#playerData thead tr').empty();
             selectedStats.forEach(function (stat) {
                 headerRow.append('<th>' + stat + '</th>');
             });
@@ -188,7 +184,7 @@
 
         // Fetch available stats and populate the selection menu
         $.getJSON('/available_stats', function (stats) {
-            var statsSelect = $('#statsSelect');
+            let statsSelect = $('#statsSelect');
             stats.forEach(function (stat) {
                 statsSelect.append(
                     $('<option>', {
@@ -201,8 +197,8 @@
 
         // Handle year and stats selection changes
         $('#yearSelect, #statsSelect').change(function () {
-            var selectedStats = $('#statsSelect').val(); // Update selected stats based on user selection
-            var year = $('#yearSelect').val();
+            let selectedStats = $('#statsSelect').val(); // Update selected stats based on user selection
+            let year = $('#yearSelect').val();
             if (selectedStats.length > 0) {
                 $.ajax({
                     url: '/filter_data',
