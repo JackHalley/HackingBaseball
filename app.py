@@ -6,7 +6,6 @@ import os
 
 app = Flask(__name__)
 
-
 # Use environment variables to keep your credentials secure
 app.secret_key = os.getenv('SECRET_KEY')
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -26,6 +25,30 @@ def index():
 @app.route('/tools')
 def tools():
     return render_template('tools.html')
+
+
+# Bek's Python
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+
+# Bek's Python
+@app.route('/got')
+def got():
+    return render_template('got.html')
+
+
+# Bek's Python
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+
+# Bek's Python
+@app.route('/tutorials')
+def tutorials():
+    return render_template('tutorials.html')
 
 
 @app.route('/available_stats')
