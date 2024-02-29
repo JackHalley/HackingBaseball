@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
     />
-	<link rel="icon" type="image/png" href="favicon.png">
-	<!-- flask -->
-	<!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- flask -->
+    <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
     <title>Hacking Baseball</title>
     <style>
         body {
@@ -22,23 +23,28 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
         .btn {
             background-color: #c20032;
             color: #f0f8ff;
             text-transform: uppercase;
         }
+
         .navbar {
             background-color: #c20032;
-			margin-bottom: 15px;
+            margin-bottom: 15px;
 
         }
+
         .navbar-brand {
             font-weight: bold;
         }
+
         .navbar-dark .navbar-toggler-icon {
             background-color: #c20032;
             color: #f0f8ff;
         }
+
         .contact-section {
             background-color: #f0f8ff;
             display: flex;
@@ -46,6 +52,7 @@
             align-items: center;
             min-height: calc(100vh - 112px); /* Adjust for navbar and footer height */
         }
+
         .contact-form {
             max-width: 900px; /* Limit form width */
             padding: 20px;
@@ -53,12 +60,13 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .footer {
             background-color: #021f40;
             color: #f0f8ff;
             padding: 10px 0;
             text-align: center;
-            margin-top: 20px;
+
         }
     </style>
 </head>
@@ -68,17 +76,17 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="{{ url_for('index') }}">
-           <img src="{{ url_for('static', filename='logo.png') }}" alt="Hacking Baseball Logo" width="50" height="50">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Hacking Baseball Logo" width="50" height="50">
             Hacking Baseball
         </a>
         <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
         >
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -99,7 +107,6 @@
 </nav>
 
 
-
 <!-- Contact Section -->
 <section class="contact-section">
     <div class="container">
@@ -109,31 +116,31 @@
                 <div class="form-group">
                     <label for="email">Email address:</label>
                     <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        name="email"
-                        required
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            required
                     />
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject:</label>
                     <input
-                        type="text"
-                        class="form-control"
-                        id="subject"
-                        name="subject"
-                        required
+                            type="text"
+                            class="form-control"
+                            id="subject"
+                            name="subject"
+                            required
                     />
                 </div>
                 <div class="form-group">
                     <label for="message">Message:</label>
                     <textarea
-                        class="form-control"
-                        id="message"
-                        name="message"
-                        rows="10" 
-                        required
+                            class="form-control"
+                            id="message"
+                            name="message"
+                            rows="10"
+                            required
                     ></textarea>
                 </div>
                 <button type="submit" class="btn  btn-block">
@@ -144,31 +151,33 @@
     </div>
 </section>
 <!-- Footer -->
-		<footer class="footer">
-			<div class="container">
-				<div class="social-icons mt-3">
-					<!-- Add your social media links here. Example for Twitter: -->
-					<p>&copy; <span id="currentYear"></span> Hacking Baseball. All rights reserved. </p>
-					<a href="#" target="_blank"
-						><i class="fab fa-twitter"></i
-					></a>
-					<!-- More icons can be added from Font Awesome. -->
-				</div>
-			</div>
-		</footer>
-		<!-- Optional JavaScript -->
-		<script>
-			// Get the current year
-			const currentYear = new Date().getFullYear();
+<footer class="footer">
+    <div class="container">
+        <div class="social-icons mt-3">
+            <!-- Add your social media links here. Example for Twitter: -->
+            <p>&copy; <span id="currentYear"></span> Hacking Baseball. All rights reserved. </p>
+            <a href="#" target="_blank"
+            ><i class="fab fa-twitter"></i
+            ></a>
+            <!-- More icons can be added from Font Awesome. -->
+        </div>
+    </div>
+</footer>
+<!-- Optional JavaScript -->
+<script>
+    // Get the current year
+    const currentYear = new Date().getFullYear();
 
-			// Update the footer text
-			document.getElementById('currentYear').textContent = currentYear;
-		</script>
+    // Update the footer text
+    document.getElementById('currentYear').textContent = currentYear;
+</script>
 
 <!-- Font Awesome for icons -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </body>
 </html>
