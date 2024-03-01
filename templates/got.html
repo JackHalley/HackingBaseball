@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Glossary of Terms</title>
+    <title>Hacking Baseball</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -15,10 +15,6 @@
         body {
             font-family: 'Raleway', sans-serif;
             background-color: #f0f8ff;
-            margin: 0;
-            padding-bottom: 60px; /* Height of the footer */
-            position: relative; /* Needed for absolute positioning of the footer */
-            min-height: 100vh; /* Ensure the body takes at least the full viewport height */
         }
         .navbar {
             background-color: #c20032;
@@ -43,35 +39,20 @@
             color: #ffffff;
             background-color: #c20032;
         }
-        /* Specific styling */
-        .hero-section {
-            background-color: #021f40;
+
+         .footer {
+             background-color: #021f40;
             color: #f0f8ff;
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 20px 0;
             text-align: center;
-        }
-        .feature-item {
-            text-align: center;
-        }
-        .feature-icon {
-            font-size: 3em;
-            color: #c20032;
-        }
-        .features, .testimonials {
-            background-color: #f0f8ff;
-        }
-      .footer {
-            position: absolute;
-            bottom: 0;
             width: 100%;
-            background-color: #021f40;
-            color: #f0f8ff;
-            {#padding: 20px 0;#}
-            text-align: center;
+            {#position: relative;#}
         }
+        /* Add margin to the table */
+        .table {
+            margin-bottom: 20px;
+        }
+
     </style>
 </head>
 <body>
@@ -119,41 +100,599 @@
     </div>
 </nav>
 
+<div class="container mt-5">
+    <h2>Batting Statistics</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Abbreviation</th>
+            <th>Definition</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1B</td>
+            <td>Single: hits on which the batter reaches first base safely without the contribution of a fielding error</td>
+        </tr>
+        <tr>
+            <td>2B</td>
+            <td>Double: hits on which the batter reaches second base safely without the contribution of a fielding error</td>
+        </tr>
+        <tr>
+            <td>3B</td>
+            <td>Triple: hits on which the batter reaches third base safely without the contribution of a fielding error</td>
+        </tr>
+        <tr>
+            <td>AB</td>
+            <td>At bat: plate appearances, not including bases on balls, being hit by pitch, sacrifices, interference, or obstruction</td>
+        </tr>
+        <tr>
+            <td>AB/HR</td>
+            <td>At bats per home run: at bats divided by home runs</td>
+        </tr>
+        <tr>
+            <td>BA</td>
+            <td>Batting average (also abbreviated AVG): hits divided by at bats (H/AB)</td>
+        </tr>
+        <tr>
+            <td>BB</td>
+            <td>Base on balls (also called a "walk"): hitter not swinging at four pitches called out of the strike zone and awarded first base.</td>
+        </tr>
+        <tr>
+            <td>BABIP</td>
+            <td>Batting average on balls in play: frequency at which a batter reaches a base after putting the ball in the field of play. Also a pitching category.</td>
+        </tr>
+        <tr>
+            <td>BB/K</td>
+            <td>Walk-to-strikeout ratio: number of bases on balls divided by number of strikeouts</td>
+        </tr>
+        <tr>
+            <td>BsR</td>
+            <td>Base runs: Another run estimator, like runs created</td>
+        </tr>
+        <tr>
+            <td>EQA</td>
+            <td>Equivalent average: a player's batting average absent park and league factors</td>
+        </tr>
+        <tr>
+            <td>FC</td>
+            <td>Fielder's choice: times reaching base safely because a fielder chose to try for an out on another runner</td>
+        </tr>
+        <tr>
+            <td>GO/AO</td>
+            <td>Ground ball fly ball ratio: number of ground ball outs divided by number of fly ball outs</td>
+        </tr>
+        <tr>
+            <td>GDP or GIDP</td>
+            <td>Ground into double play: number of ground balls hit that became double plays</td>
+        </tr>
+        <tr>
+            <td>GPA</td>
+            <td>Gross production average: 1.8 times on-base percentage plus slugging percentage, divided by four</td>
+        </tr>
+        <tr>
+            <td>GS</td>
+            <td>Grand slam: a home run with the bases loaded, resulting in four runs scoring, and four RBIs credited to the batter</td>
+        </tr>
+        <tr>
+            <td>H</td>
+            <td>Hit: reaching base because of a batted, fair ball without error by the defense</td>
+        </tr>
+        <tr>
+            <td>HBP</td>
+            <td>Hit by pitch: times touched by a pitch and awarded first base as a result</td>
+        </tr>
+        <tr>
+            <td>HR</td>
+            <td>Home runs: hits on which the batter successfully touched all four bases, without the contribution of a fielding error</td>
+        </tr>
+        <tr>
+            <td>HR/H</td>
+            <td>Home runs per hit: home runs divided by total hits</td>
+        </tr>
+        <tr>
+            <td>ITPHR</td>
+            <td>Inside-the-park home run: hits on which the batter successfully touched all four bases, without the contribution of a fielding error or the ball going outside the ball park.</td>
+        </tr>
+        <tr>
+            <td>IBB</td>
+            <td>Intentional base on balls: times awarded first base on balls (see BB above) deliberately thrown by the pitcher. Also known as IW (intentional walk).</td>
+        </tr>
+        <tr>
+            <td>ISO</td>
+            <td>Isolated power: a hitter's ability to hit for extra bases, calculated by subtracting batting average from slugging percentage</td>
+        </tr>
+        <tr>
+            <td>K</td>
+            <td>Strike out (also abbreviated SO): number of times that a third strike is taken or swung at and missed, or bunted foul. Catcher must catch the third strike or batter may attempt to run to first base.</td>
+        </tr>
+        <tr>
+            <td>LOB</td>
+            <td>Left on base: number of runners neither out nor scored at the end of an inning</td>
+        </tr>
+        <tr>
+            <td>OBP</td>
+            <td>On-base percentage: times reached base (H + BB + HBP) divided by at bats plus walks plus hit by pitch plus sacrifice flies (AB + BB + HBP + SF)</td>
+        </tr>
+        <tr>
+            <td>OPS</td>
+            <td>On-base plus slugging: on-base percentage plus slugging average</td>
+        </tr>
+        <tr>
+            <td>PA</td>
+            <td>Plate appearance: number of completed batting appearances</td>
+        </tr>
+        <tr>
+            <td>PA/SO</td>
+            <td>Plate appearances per strikeout: number of times a batter strikes out to their plate appearance</td>
+        </tr>
+        <tr>
+            <td>R</td>
+            <td>Runs scored: number of times a player crosses home plate</td>
+        </tr>
+        <tr>
+            <td>RC</td>
+            <td>Runs created: an attempt to measure how many runs a player has contributed to their team</td>
+        </tr>
+        <tr>
+            <td>RP</td>
+            <td>Runs produced: an attempt to measure how many runs a player has contributed</td>
+        </tr>
+        <tr>
+            <td>RBI</td>
+            <td>Run batted in: number of runners who score due to a batter's action, except when the batter grounded into a double play or reached on an error</td>
+        </tr>
+        <tr>
+            <td>RISP</td>
+            <td>Runner in scoring position: a breakdown of a batter's batting average with runners in scoring position, which includes runners at second or third base</td>
+        </tr>
+        <tr>
+            <td>SF</td>
+            <td>Sacrifice fly: fly balls hit to the outfield which, although caught for an out, allow a baserunner to advance</td>
+        </tr>
+        <tr>
+            <td>SH</td>
+            <td>Sacrifice hit: number of sacrifice bunts which allow runners to advance on the basepaths</td>
+        </tr>
+        <tr>
+            <td>SLG</td>
+            <td>Slugging percentage: total bases achieved on hits divided by at-bats (TB/AB)</td>
+        </tr>
+        <tr>
+            <td>TA</td>
+            <td>Total average: total bases, plus walks, plus hit by pitch, plus steals, minus caught stealing divided by at bats, minus hits, plus caught stealing, plus grounded into double plays [(TB + BB + HBP + SB – CS)/(AB – H + CS + GIDP)]</td>
+        </tr>
+        <tr>
+            <td>TB</td>
+            <td>Total bases: one for each single, two for each double, three for each triple, and four for each home run [H + 2B + (2 × 3B) + (3 × HR)] or [1B + (2 × 2B) + (3 × 3B) + (4 × HR)]</td>
+        </tr>
+        <tr>
+            <td>TOB</td>
+            <td>Times on base: times reaching base as a result of hits, walks, and hit-by-pitches (H + BB + HBP)</td>
+        </tr>
+        <tr>
+            <td>XBH</td>
+            <td>Extra base hits: total hits greater than singles (2B + 3B + HR)</td>
+        </tr>
+    </tbody>
+</table>
 
-<h1>Content coming soon</h1>
+ <h2>Baserunning Statistics</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Abbreviation</th>
+            <th>Definition</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>SB</td>
+            <td>Stolen base: number of bases advanced by the runner while the ball is in the possession of the defense</td>
+        </tr>
+        <tr>
+            <td>CS</td>
+            <td>Caught stealing: times tagged out while attempting to steal a base</td>
+        </tr>
+        <tr>
+            <td>SBA or ATT</td>
+            <td>Stolen base attempts: total number of times the player has attempted to steal a base (SB+CS)</td>
+        </tr>
+        <tr>
+            <td>SB%</td>
+            <td>Stolen base percentage: the percentage of bases stolen successfully. (SB) divided by (SBA) (stolen bases attempted)</td>
+        </tr>
+        <tr>
+            <td>DI</td>
+            <td>Defensive Indifference: if the catcher does not attempt to throw out a runner (usually because the base would be insignificant), the runner is not awarded a steal. Scored as a fielder's choice</td>
+        </tr>
+        <tr>
+            <td>R</td>
+            <td>Runs scored: times reached home plate legally and safely</td>
+        </tr>
+        <tr>
+            <td>UBR</td>
+            <td>Ultimate base running: a metric that assigns linear weights to every individual baserunning event in order to measure the impact of a player's baserunning skill</td>
+        </tr>
+    </tbody>
+</table>
+
+
+  <h2>Pitching Statistics</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Abbreviation</th>
+            <th>Definition</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>BB</td>
+            <td>Base on balls (also called a "walk"): times pitching four balls, allowing the batter to take first base</td>
+        </tr>
+        <tr>
+            <td>BB/9</td>
+            <td>Bases on balls per 9 innings pitched: base on balls multiplied by nine, divided by innings pitched</td>
+        </tr>
+        <tr>
+            <td>BF</td>
+            <td>Total batters faced: opponent team's total plate appearances</td>
+        </tr>
+        <tr>
+            <td>BK</td>
+            <td>Balk: number of times pitcher commits an illegal pitching action while in contact with the pitching rubber as judged by umpire, resulting in baserunners advancing one base</td>
+        </tr>
+        <tr>
+            <td>BS</td>
+            <td>Blown save: number of times entering the game in a save situation, and being charged the run (earned or not) which eliminates his team's lead</td>
+        </tr>
+        <tr>
+            <td>CERA</td>
+            <td>Component ERA: an estimate of a pitcher's ERA based upon the individual components of his statistical line (K, H, 2B, 3B, HR, BB, HBP)</td>
+        </tr>
+        <tr>
+            <td>CG</td>
+            <td>Complete game: number of games where player was the only pitcher for their team</td>
+        </tr>
+        <tr>
+            <td>DICE</td>
+            <td>Defense-Independent Component ERA: an estimate of a pitcher's ERA based upon the defense-independent components of his statistical line (K, HR, BB, HBP) but which also uses number of outs (IP), which is not defense independent.</td>
+        </tr>
+        <tr>
+            <td>ER</td>
+            <td>Earned run: number of runs that did not occur as a result of errors or passed balls</td>
+        </tr>
+        <tr>
+            <td>ERA</td>
+            <td>Earned run average: total number of earned runs (see "ER" above), multiplied by 9, divided by innings pitched</td>
+        </tr>
+        <tr>
+            <td>ERA+</td>
+            <td>Adjusted ERA+: earned run average adjusted for the ballpark and the league average</td>
+        </tr>
+        <tr>
+            <td>FIP</td>
+            <td>Fielding independent pitching: a metric, scaled to resemble an ERA, that focuses on events within the pitcher's control – home runs, walks, and strikeouts – but also uses in its denominator the number of outs the team gets (see IP), which is not entirely within the pitcher's control.</td>
+        </tr>
+        <tr>
+            <td>xFIP</td>
+            <td>This variant substitutes a pitcher's own home run percentage with the league average</td>
+        </tr>
+        <tr>
+            <td>G</td>
+            <td>Games (AKA "appearances"): number of times a pitcher pitches in a season</td>
+        </tr>
+        <tr>
+            <td>GF</td>
+            <td>Games finished: number of games pitched where player was the final pitcher for their team as a relief pitcher</td>
+        </tr>
+        <tr>
+            <td>GIDP</td>
+            <td>Double plays induced: number of double play groundouts induced</td>
+        </tr>
+        <tr>
+            <td>GIDPO</td>
+            <td>Double play opportunities: number of groundout induced double play opportunities</td>
+        </tr>
+        <tr>
+            <td>GIR</td>
+            <td>Games in relief: games as a non starting pitcher</td>
+        </tr>
+        <tr>
+            <td>GO/AO or G/F</td>
+            <td>Ground Out to Air Out ratio, aka Ground ball fly ball ratio: ground balls allowed divided by fly balls allowed</td>
+        </tr>
+        <tr>
+            <td>GS</td>
+            <td>Starts: number of games pitched where player was the first pitcher for their team</td>
+        </tr>
+        <tr>
+            <td>H (or HA)</td>
+            <td>Hits allowed: total hits allowed</td>
+        </tr>
+        <tr>
+            <td>H/9 (or HA/9)</td>
+            <td>Hits allowed per 9 innings pitched: hits allowed times nine divided by innings pitched (also known as H/9IP)</td>
+        </tr>
+        <tr>
+            <td>HB</td>
+            <td>Hit batsman: times hit a batter with pitch, allowing runner to advance to first base</td>
+        </tr>
+        <tr>
+            <td>HLD (or H)</td>
+            <td>Hold: number of games entered in a save situation, recorded at least one out, did not surrender the lead, and did not complete the game</td>
+        </tr>
+        <tr>
+            <td>HR (or HRA)</td>
+            <td>Home runs allowed: total home runs allowed</td>
+        </tr>
+        <tr>
+            <td>HR/9 (or HRA/9)</td>
+            <td>Home runs per nine innings: home runs allowed times nine divided by innings pitched (also known as HR/9IP)</td>
+        </tr>
+        <tr>
+            <td>IBB</td>
+            <td>Intentional base on balls allowed</td>
+        </tr>
+        <tr>
+            <td>IP</td>
+            <td>Innings pitched: the number of outs a team gets while a pitcher is pitching divided by 3</td>
+        </tr>
+        <tr>
+            <td>IP/GS</td>
+            <td>Average number of innings pitched per game started</td>
+        </tr>
+        <tr>
+            <td>IR</td>
+            <td>Inherited runners: number of runners on base when the pitcher enters the game</td>
+        </tr>
+        <tr>
+            <td>IRA</td>
+            <td>Inherited runs allowed: number of inherited runners allowed to score</td>
+        </tr>
+        <tr>
+            <td>K (or SO)</td>
+            <td>Strikeout: number of batters who received strike three</td>
+        </tr>
+        <tr>
+            <td>K/9 (or SO/9)</td>
+            <td>Strikeouts per 9 innings pitched: strikeouts times nine divided by innings pitched</td>
+        </tr>
+        <tr>
+            <td>K/BB (or SO/BB)</td>
+            <td>Strikeout-to-walk ratio: number of strikeouts divided by number of base on balls</td>
+        </tr>
+        <tr>
+            <td>L</td>
+            <td>Loss: number of games where pitcher was pitching while the opposing team took the lead, never lost the lead, and went on to win</td>
+        </tr>
+        <tr>
+            <td>LOB%</td>
+            <td>Left-on-base percentage: LOB% represents the percentage of baserunners a pitcher does not allow to score. LOB% tends to regress toward 70–72% over time, so unusually high or low percentages could indicate that pitcher's ERA could be expected to rise or lower in the future. An occasional exception to this logic is a pitcher with a very high strikeout rate.</td>
+        </tr>
+        <tr>
+            <td>OBA (or just AVG)</td>
+            <td>Opponents batting average: hits allowed divided by at-bats faced</td>
+        </tr>
+        <tr>
+            <td>PC-ST</td>
+            <td>An individual pitcher's total game pitches [Pitch Count] and [ST] his no. of strikes thrown within that PC.</td>
+        </tr>
+        <tr>
+            <td>PIT (or NP)</td>
+            <td>Pitches thrown (Pitch count)</td>
+        </tr>
+        <tr>
+            <td>PFR</td>
+            <td>Power finesse ratio: The sum of strikeouts and walks divided by innings pitched.</td>
+        </tr>
+        <tr>
+            <td>pNERD</td>
+            <td>Pitcher's NERD: expected aesthetic pleasure of watching an individual pitcher</td>
+        </tr>
+        <tr>
+            <td>QOP</td>
+            <td>Quality of pitch: comprehensive pitch evaluation statistic which combines speed, location and movement (rise, total break, vertical break and horizontal break) into a single numeric value</td>
+        </tr>
+        <tr>
+            <td>QS</td>
+            <td>Quality start: a game in which a starting pitcher completes at least six innings and permits no more than three earned runs</td>
+        </tr>
+        <tr>
+            <td>RA</td>
+            <td>Run average: number of runs allowed times nine divided by innings pitched</td>
+        </tr>
+        <tr>
+            <td>SHO</td>
+            <td>Shutout: number of complete games pitched with no runs allowed</td>
+        </tr>
+        <tr>
+            <td>SIERA</td>
+            <td>Skill-Interactive Earned Run Average: another advanced stat that measures pitching. SIERA builds on FIP and xFIP by taking a deeper look at what makes pitchers better.</td>
+        </tr>
+        <tr>
+            <td>SV</td>
+            <td>Save: number of games where the pitcher enters a game led by the pitcher's team, finishes the game without surrendering the lead, is not the winning pitcher, and either (a) the lead was three runs or fewer when the pitcher entered the game; (b) the potential tying run was on base, at bat, or on deck; or (c) the pitcher pitched three or more innings</td>
+        </tr>
+        <tr>
+            <td>SVO</td>
+            <td>Save opportunity: When a pitcher 1) enters the game with a lead of three or fewer runs and pitches at least one inning, 2) enters the game with the potential tying run on base, at bat, or on deck, or 3) pitches three or more innings with a lead and is credited with a save by the official scorer</td>
+        </tr>
+        <tr>
+            <td>W</td>
+            <td>Win: number of games where pitcher was pitching while their team took the lead and went on to win, also the starter needs to pitch at least 5 innings of work (also related: winning percentage)</td>
+        </tr>
+        <tr>
+            <td>W + S</td>
+            <td>Wins in relief + saves</td>
+        </tr>
+        <tr>
+            <td>Whiff Rate</td>
+            <td>A term, usually used in reference to pitchers, that divides the number of pitches swung at and missed by the total number of swings in a given sample. If a pitcher throws 100 pitches at which batters swing, and the batters fail to make contact on 26 of them, the pitcher's whiff rate is 26%</td>
+        </tr>
+        <tr>
+            <td>WHIP</td>
+            <td>Walks and hits per inning pitched: average number of walks and hits allowed by the pitcher per inning</td>
+        </tr>
+        <tr>
+            <td>WP</td>
+            <td>Wild pitches: charged when a pitch is too high, low, or wide of home plate for the catcher to field, thereby allowing one or more runners to advance or score</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Fielding Statistics</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Abbreviation</th>
+            <th>Definition</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>A</td>
+            <td>Assists: number of outs recorded on a play where a fielder touched the ball, except if such touching is the putout</td>
+        </tr>
+        <tr>
+            <td>CI</td>
+            <td>Catcher's Interference (e.g., catcher makes contact with bat)</td>
+        </tr>
+        <tr>
+            <td>DP</td>
+            <td>Double plays: one for each double play during which the fielder recorded a putout or an assist.</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>Errors: number of times a fielder fails to make a play he should have made with common effort, and the offense benefits as a result</td>
+        </tr>
+        <tr>
+            <td>FP</td>
+            <td>Fielding percentage: total plays (chances minus errors) divided by the number of total chances</td>
+        </tr>
+        <tr>
+            <td>INN</td>
+            <td>Innings: number of innings that a player is at one certain position</td>
+        </tr>
+        <tr>
+            <td>PB</td>
+            <td>Passed ball: charged to the catcher when the ball is dropped and one or more runners advance</td>
+        </tr>
+        <tr>
+            <td>PO</td>
+            <td>Putout: number of times the fielder tags, forces, or appeals a runner and he is called out as a result</td>
+        </tr>
+        <tr>
+            <td>RF</td>
+            <td>Range factor: 9*(putouts + assists)/innings played. Used to determine the amount of field that the player can cover</td>
+        </tr>
+        <tr>
+            <td>TC</td>
+            <td>Total chances: assists plus putouts plus errors</td>
+        </tr>
+        <tr>
+            <td>TP</td>
+            <td>Triple play: one for each triple play during which the fielder recorded a putout or an assist</td>
+        </tr>
+        <tr>
+            <td>UZR</td>
+            <td>Ultimate zone rating: the ability of a player to defend an assigned "zone" of the field compared to an average defensive player at his position</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Overall Player Value</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Abbreviation</th>
+            <th>Definition</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>VORP</td>
+            <td>Value over replacement player: a statistic that calculates a player's overall value in comparison to a "replacement-level" player. There are separate formulas for players and pitchers</td>
+        </tr>
+        <tr>
+            <td>Win shares</td>
+            <td>A complex metric that gauges a player's overall contribution to his team's wins</td>
+        </tr>
+        <tr>
+            <td>WAR</td>
+            <td>Wins above replacement: a non-standard formula to calculate the number of wins a player contributes to his team over a "replacement-level player"</td>
+        </tr>
+        <tr>
+            <td>PWA</td>
+            <td>Player Win Average: performance of players is shown by how much they increase or decrease their team's chances of winning a specific game</td>
+        </tr>
+        <tr>
+            <td>PGP</td>
+            <td>Player Game Percentage: defined as, "the sum of changes in the probability of winning the game for each play in which the player has participated"</td>
+        </tr>
+    </tbody>
+</table>
+
+    <div class="container mt-5">
+    <h2>General Statistics</h2>
+    <!-- Wrapper div with margin -->
+    <div class="table-wrapper">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Abbreviation</th>
+                    <th>Definition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>G</td>
+                    <td>Games played: number of games where the player played, in whole or in part</td>
+                </tr>
+                <tr>
+                    <td>GS</td>
+                    <td>Games started: number of games a player starts</td>
+                </tr>
+                <tr>
+                    <td>GB</td>
+                    <td>Games behind: number of games a team is behind the division leader</td>
+                </tr>
+                <tr>
+                    <td>Pythagorean expectation</td>
+                    <td>Estimates a team's expected winning percentage based on runs scored and runs allowed</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
-        <div class="social-icons mt-3">
-            <!-- Add your social media links here. Example for Twitter: -->
+        <div >
             <p>
-                &copy; <span id="currentYear"></span> Hacking Baseball.
-                All rights reserved.
-            </p>
-            <a href="#" target="_blank"
-            ><i class="fab fa-twitter"></i
-            ></a>
-            <!-- More icons can be added from Font Awesome. -->
+    &copy; <span id="currentYear"></span> Hacking Baseball. All rights reserved.
+    <br>
+    Data source: <a href="https://en.wikipedia.org/wiki/Baseball_statistics">Wikipedia</a>
+</p>
+
+            <!-- Add social media links here -->
         </div>
     </div>
 </footer>
-<!-- Optional JavaScript -->
+
+<!-- JavaScript -->
+<!-- Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     // Get the current year
     const currentYear = new Date().getFullYear();
-
     // Update the footer text
     document.getElementById('currentYear').textContent = currentYear;
 </script>
-
-<!-- Font Awesome for icons -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></script>
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"
-></script>
+</div>
 </body>
 </html>
