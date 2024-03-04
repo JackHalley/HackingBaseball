@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hacking Baseball</title>
+    <!-- Add the favicon link -->
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* General styling */
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Raleway', sans-serif;
+            color: #021f40; /* Set text color to dark */
+        }
+
+        .landing-section {
+            padding: 100px 0; /* Adjust as needed */
+            text-align: center;
+        }
+
+        .cta-button {
+            background-color: #c20032; /* Red color for button */
+            color: white; /* White text color for button */
+            padding: 15px 50px; /* Adjust as needed */
+            font-size: 24px; /* Adjust as needed */
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #b30028; /* Darken the button color on hover */
+        }
+
+        /* Set fixed width for input fields */
+        .fixed-width-input {
+            width: 300px; /* Adjust as needed */
+            margin: auto; /* Center the input fields */
+        }
+    </style>
+</head>
+<body>
+<section class="landing-section">
+    <h1 class="fs-1 text-uppercase">Coming Soon</h1>
+    <img src="{{ url_for('static', filename='logo.png') }} " alt="Hacking Baseball Logo" width="300" height="300"/>
+    <h2>Easy-to-use baseball analytics tools in your web browser.</h2>
+    <p>Press the button to be included in the opening day release.</p>
+    <form>
+        <div class="mb-3 fixed-width-input">
+            <label>
+                <input type="text" class="form-control" placeholder="Enter Name" required>
+            </label>
+        </div>
+        <div class="mb-3 fixed-width-input">
+            <label>
+                <input type="email" class="form-control" placeholder="Enter Email" required>
+            </label>
+        </div>
+        <button type="submit" class="cta-button">Let's Play Ball</button>
+    </form>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
