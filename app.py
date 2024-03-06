@@ -27,28 +27,35 @@ def tools():
     return render_template('tools.html')
 
 
-# Bek's Python
 @app.route('/blog')
 def blog():
     return render_template('blog.html')
 
 
-# Bek's Python
 @app.route('/got')
 def got():
     return render_template('got.html')
 
 
-# Bek's Python
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
 
 
-# Bek's Python
 @app.route('/tutorials')
 def tutorials():
     return render_template('tutorials.html')
+
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+
+# Define the route for the login page
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 
 @app.route('/available_stats')

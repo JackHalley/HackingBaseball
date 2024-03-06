@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/png" href="favicon.png">
+    {#    favicon#}
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
     <!-- flask -->
     <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
     <title>Player Dashboard</title>
@@ -22,6 +23,8 @@
             height: 100%;
             margin: 0;
             padding: 0;
+            font-family: 'Raleway', sans-serif;
+            background-color: #f0f8ff;
         }
 
         .dashboard-container {
@@ -39,6 +42,7 @@
         }
 
         .table-container {
+
             flex-grow: 1;
             width: calc(
                     100% - 200px
@@ -54,12 +58,15 @@
         .table-fixed-header {
             width: 100%;
             overflow-y: auto;
+
+
         }
 
         thead th {
             position: sticky;
             top: 0;
-            background-color: #fff; /* or any color that matches your design */
+            background-color: #021f40;
+            color: #f0f8ff;
             z-index: 10;
         }
 
@@ -69,26 +76,9 @@
             border-bottom: 2px solid #dee2e6; /* Bootstrap's default border color for tables */
         }
 
-        .navbar {
-            background-color: #c20032;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-        }
-
-        .navbar-dark .navbar-toggler-icon {
+        .navbar-dark {
             background-color: #c20032;
             color: #f0f8ff;
-        }
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background-color: #021f40;
-            color: #f0f8ff;
-            {#padding: 20px 0;#}
-            text-align: center;
         }
     </style>
 </head>
@@ -127,6 +117,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+
+                </li>
             </ul>
         </div>
     </div>
@@ -151,7 +145,7 @@
                 {% endfor %}
             </select>
         </div>
-        <table class="table" id="playerData">
+        <table class="table-fixed-header" id="playerData">
             <thead class="thead-dark">
             <tr>
                 <!-- Headers will be inserted dynamically -->
@@ -167,7 +161,7 @@
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function () {
-        var table; // Declare table variable to be assigned later
+        let table; // Declare table variable to be assigned later
 
         // Function to update headers and reinitialize the DataTable
         function updateTableHeadersAndData(selectedStats, data) {
@@ -176,7 +170,7 @@
                 table.destroy();
             }
             // Empty the header row and add new headers
-            var headerRow = $('#playerData thead tr').empty();
+            let headerRow = $('#playerData thead tr').empty();
             selectedStats.forEach(function (stat) {
                 headerRow.append('<th>' + stat + '</th>');
             });
@@ -195,7 +189,7 @@
 
         // Fetch available stats and populate the selection menu
         $.getJSON('/available_stats', function (stats) {
-            var statsSelect = $('#statsSelect');
+            let statsSelect = $('#statsSelect');
             stats.forEach(function (stat) {
                 statsSelect.append(
                     $('<option>', {
@@ -208,8 +202,8 @@
 
         // Handle year and stats selection changes
         $('#yearSelect, #statsSelect').change(function () {
-            var selectedStats = $('#statsSelect').val(); // Update selected stats based on user selection
-            var year = $('#yearSelect').val();
+            let selectedStats = $('#statsSelect').val(); // Update selected stats based on user selection
+            let year = $('#yearSelect').val();
             if (selectedStats.length > 0) {
                 $.ajax({
                     url: '/filter_data',
@@ -244,18 +238,7 @@
         $('#yearSelect').change();
     });
 </script>
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="social-icons mt-3">
-            <p>
-                &copy; <span id="currentYear"></span> Hacking Baseball.
-                All rights reserved.
-            </p>
-            <!-- Add social media links here -->
-        </div>
-    </div>
-</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
